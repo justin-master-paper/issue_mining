@@ -25,3 +25,12 @@ def prepare_routines(issues):
 def get_issue_routines():
     issues = get_all_classified_issues()
     return prepare_routines(issues)
+
+def get_issue_list():
+    issue_list = []
+    issues = get_all_classified_issues()
+    for issue in issues:
+        issue_list.append(issue)
+    return issue_list
+
+

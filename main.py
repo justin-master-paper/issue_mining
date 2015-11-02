@@ -2,12 +2,6 @@
 from fp_growth import tree_builder, tree_miner
 from issue_routines import get_issue_routines
 
-#routines = [    
-#           ['Cola','Egg','Ham'],
-#           ['Cola','Diaper','Beer'],
-#           ['Cola','Beer','Diaper','Ham'],
-#           ['Diaper','Beer']
-#        ]                                 #事务数据集
 routines = get_issue_routines()
 min_sup = 3                             #最小支持度计数
 headerTable = {}        #头结点表，用来存放各个项的索引
