@@ -72,6 +72,5 @@ def kmedoids(classified_issues, k) :
             pre_cost = current_cost
             medoids = best_res
             medoids_idx = best_choice
-        
-    
+
     return current_cost, best_choice, best_res

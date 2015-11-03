@@ -33,4 +33,3 @@ def get_issue_list():
         issue_list.append(issue)
     return issue_list
 
-
