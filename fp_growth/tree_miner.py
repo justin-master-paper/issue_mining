@@ -2,6 +2,7 @@
 
 import tree_builder
 import copy
+from pprint import pprint
 
 class Tree_miner(object):
     """tree_miner类. 作用:对Tree进行频繁项集的挖掘"""
@@ -23,6 +24,9 @@ class Tree_miner(object):
             allElem.setdefault(node.data,node.count)        #记录路径上的节点，如果是单个路径的话会用到
         if len(node.children) < 1:                  #Tree只包含单个路径
             L = self.getL(items=allElem, min_sup=self.min_sup, A=A)     #L即为我们要求的频繁项集
+            print '*'*40
+            pprint(L)
+            print '*'*40
             self.showResult(L)      #对结果进行输出
             return
         else:
