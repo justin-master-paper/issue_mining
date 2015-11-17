@@ -19,6 +19,7 @@ def get_all_classified_issues():
 def prepare_routines(issues):
     routines = []
     for issue in issues:
+        if issue["status"] == "rejected": continue
         routines.append([issue[key] for key in CLASSIFICATIONS_KEYS])
     return routines
 
