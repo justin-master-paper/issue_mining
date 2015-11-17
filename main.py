@@ -13,7 +13,15 @@ headerTable = {}        #头结点表，用来存放各个项的索引
 def showResult(result=[[]]):
     """功能: 将挖掘到的频繁项集进行展示"""
     for elem in result:
-        print tuple(elem)
+        rule = []
+        cnt = 0
+        for item in elem:
+            if (type(item) == str or type(item) ==unicode) and item not in rule:
+                rule.append(item)
+            if type(item) == int:
+                cnt = item
+        rule.append(cnt)
+        print tuple(rule)
     return
 
 treeBuilder = tree_builder.Tree_builder(routines=routines, min_sup=min_sup, headerTable=headerTable)    #建造FP_Tree
