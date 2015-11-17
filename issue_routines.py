@@ -20,7 +20,7 @@ def prepare_routines(issues):
     routines = []
     for issue in issues:
         if issue["status"] == "rejected": continue
-        routines.append([issue[key] for key in CLASSIFICATIONS_KEYS])
+        routines.append([key+'-'+issue[key] for key in CLASSIFICATIONS_KEYS])
     return routines
 
 def get_issue_routines():

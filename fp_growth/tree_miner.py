@@ -2,13 +2,13 @@
 
 import tree_builder
 import copy
-from pprint import pprint
 
 class Tree_miner(object):
     """tree_miner类. 作用:对Tree进行频繁项集的挖掘"""
-    def __init__(self, Tree=None, min_sup=-1, headerTable={}):
+    def __init__(self, Tree=None, min_sup=-1, headerTable={}, showResult=None):
         """tree_miner的初始化. Tree即为构造好的FP_Tree, min_sup是最小支持度计数, headerTable是FP_Tree的头结点表"""
         self.min_sup = min_sup
+        self.showResult = showResult if showResult != None else self.showResult
         self.tree_mining(Tree=Tree, headerTable=headerTable)
     
     
@@ -24,9 +24,6 @@ class Tree_miner(object):
             allElem.setdefault(node.data,node.count)        #记录路径上的节点，如果是单个路径的话会用到
         if len(node.children) < 1:                  #Tree只包含单个路径
             L = self.getL(items=allElem, min_sup=self.min_sup, A=A)     #L即为我们要求的频繁项集
-            print '*'*40
-            pprint(L)
-            print '*'*40
             self.showResult(L)      #对结果进行输出
             return
         else:
