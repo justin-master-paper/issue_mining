@@ -13,13 +13,13 @@ from db import db
 CLASSIFICATIONS_KEYS = ["type", "serverity", "priority", "status", "origin", "source", "root_cause"]
 
 def get_all_classified_issues():
-    issues = db.defects_classified.find()
+    issues = db.defects_classified.find({"status": {'$ne': "rejected"}})
     return issues
 
 def prepare_routines(issues):
     routines = []
     for issue in issues:
-        if issue["status"] == "rejected": continue
+        #if issue["status"] == "rejected": continue
         routines.append([key+'-'+issue[key] for key in CLASSIFICATIONS_KEYS])
     return routines
 
