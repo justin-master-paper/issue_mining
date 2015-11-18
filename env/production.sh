@@ -10,6 +10,8 @@ export MONGO_URI="mongodb://localhost:27017/"
 
 export MIN_SUP_PERCENT="0.05"
 
+export CLUSTER_K="7"
+
 export CLUSTER_MIN_SUP_PERCENT="0.05"
 
 export WINDOW_SIZE="10"

@@ -7,11 +7,12 @@
 # Created Time: Mon Nov  2 15:33:33 2015
 #########################################################################
 
+import os
 from kmedoids.kmedoids import kmedoids
 from issue_routines import get_issue_list
 from pprint import pprint
 
-k = 3
+k = int(os.getenv("CLUSTER_K", 3))
 
 def cluster_issues():
     issues = get_issue_list()
