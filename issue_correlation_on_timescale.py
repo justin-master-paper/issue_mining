@@ -31,14 +31,14 @@ def issue_cluster_distribute_by_repo(medoids):
             except KeyError,e:
                 print 'error:',e
                 issues_by_repo[issue['repo']] = [issue]
-    print '*'*40
-    print 'issues_by_repo:'
-    pprint(issues_by_repo)
+    #print '*'*40
+    #print 'issues_by_repo:'
+    #pprint(issues_by_repo)
     return issues_by_repo
 
 def sort_issues_by_repo(issues_by_repo):
-    print 'issues_by_repo:'
-    pprint(issues_by_repo)
+    #print 'issues_by_repo:'
+    #pprint(issues_by_repo)
     for key,issue_list in issues_by_repo.iteritems():
         issue_list.sort(key=lambda x: x['number'])
     return issues_by_repo
@@ -47,8 +47,8 @@ def do_issue_cluster_distribute_by_repo():
     best_cost, best_choice, best_medoids = cluster_issues()
     issues_by_repo = issue_cluster_distribute_by_repo(best_medoids)
     issues_by_repo_sorted = sort_issues_by_repo(issues_by_repo)
-    print '*'*40
-    pprint(issues_by_repo_sorted)
+    #print '*'*40
+    #pprint(issues_by_repo_sorted)
 
     return issues_by_repo_sorted
 
@@ -85,8 +85,8 @@ def issue_mining_on_timescale():
 
         headerTable = {}        #头结点表，用来存放各个项的索引
 
-        treeBuilder = tree_builder.Tree_builder(routines=routines, min_sup=min_sup, headerTable=headerTable, showResult=showResult)    #建造FP_Tree
-        tree_miner.Tree_miner(Tree=treeBuilder.tree, min_sup=min_sup, headerTable=headerTable)         #对FP_Tree进行频繁项集的挖掘
+        treeBuilder = tree_builder.Tree_builder(routines=routines, min_sup=min_sup, headerTable=headerTable)    #建造FP_Tree
+        tree_miner.Tree_miner(Tree=treeBuilder.tree, min_sup=min_sup, headerTable=headerTable, showResult=showResult)         #对FP_Tree进行频繁项集的挖掘
 
 def showResult(result=[[]]):
     """功能: 将挖掘到的频繁项集进行展示"""
