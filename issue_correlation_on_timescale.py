@@ -65,8 +65,8 @@ def generate_issue_routines(issues_sorted):
 def issue_mining_on_timescale():
     issues_by_repo_sorted = do_issue_cluster_distribute_by_repo()
     for repo,issues_sorted in issues_by_repo_sorted.iteritems():
-        print 'issues_sorted:'
-        pprint(issues_sorted)
+        #print 'issues_sorted:'
+        #pprint(issues_sorted)
         routines = generate_issue_routines(issues_sorted)
         print '+'*40
         pprint(routines)
@@ -77,7 +77,11 @@ def issue_mining_on_timescale():
 
         print '#'*40
         print 'min_sup:', min_sup
+        print 'len of current routines:',len(routines)
         print '#'*40
+        if min_sup <= 0:
+            print 'current routines is too short'
+            continue
 
         headerTable = {}        #头结点表，用来存放各个项的索引
 
