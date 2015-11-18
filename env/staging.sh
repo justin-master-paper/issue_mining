@@ -8,8 +8,8 @@
 
 export MONGO_URI="mongodb://localhost:27017/"
 
-export MIN_SUP_PERCENT=0.1
+export MIN_SUP_PERCENT="0.1"
 
-export CLUSTER_MIN_SUP_PERCENT=0.1
+export CLUSTER_MIN_SUP_PERCENT="0.1"
 
-export WINDOW_SIZE=3
+export WINDOW_SIZE="3"

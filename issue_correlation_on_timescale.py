@@ -13,7 +13,7 @@ from issue_clustering import cluster_issues
 from fp_growth import tree_builder, tree_miner
 from issue_routines import get_issue_routines
 
-window_size = os.getenv('WINDOW_SIZE', 3)
+window_size = int(os.getenv('WINDOW_SIZE', 3))
 print '*'*40
 print 'window_size:',window_size
 print '*'*40
@@ -72,7 +72,7 @@ def issue_mining_on_timescale():
         pprint(routines)
         print '+'*40
 
-        min_sup_percent = os.getenv('CLUSTER_MIN_SUP_PERCENT', 0.1)
+        min_sup_percent = float(os.getenv('CLUSTER_MIN_SUP_PERCENT', 0.1))
         min_sup = int(len(routines) * min_sup_percent)                             #最小支持度计数
 
         print '#'*40
