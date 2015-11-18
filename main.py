@@ -1,10 +1,12 @@
 #coding=utf-8
+import os
 from fp_growth import tree_builder, tree_miner
 from issue_routines import get_issue_routines
 from consts import DEFECT_CLAS_LIST, DEFECT_CLASSIFICATIONS 
 
 routines = get_issue_routines()
-min_sup = int(len(routines) * 0.1)                             #最小支持度计数
+min_sup_percent = os.getenv('MIN_SUP_PERCENT', 0.1)
+min_sup = int(len(routines) * min_sup_percent)                             #最小支持度计数
 print '#'*40
 print 'min_sup:', min_sup
 print '#'*40

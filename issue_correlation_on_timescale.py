@@ -7,13 +7,16 @@
 # Created Time: Tue Nov  3 12:56:59 2015
 #########################################################################
 
+import os
 from pprint import pprint
 from issue_clustering import cluster_issues
 from fp_growth import tree_builder, tree_miner
 from issue_routines import get_issue_routines
 
-# TODO: fix
-window_size = 3
+window_size = os.getenv('WINDOW_SIZE', 3)
+print '*'*40
+print 'window_size:',window_size
+print '*'*40
 
 def issue_cluster_distribute_by_repo(medoids):
     issues_by_repo = {}
@@ -69,12 +72,32 @@ def issue_mining_on_timescale():
         pprint(routines)
         print '+'*40
 
-        # TODO: fix
-        min_sup = 2                             #最小支持度计数
+        min_sup_percent = os.getenv('CLUSTER_MIN_SUP_PERCENT', 0.1)
+        min_sup = int(len(routines) * min_sup_percent)                             #最小支持度计数
+
+        print '#'*40
+        print 'min_sup:', min_sup
+        print '#'*40
+
         headerTable = {}        #头结点表，用来存放各个项的索引
 
-        treeBuilder = tree_builder.Tree_builder(routines=routines, min_sup=min_sup, headerTable=headerTable)    #建造FP_Tree
+        treeBuilder = tree_builder.Tree_builder(routines=routines, min_sup=min_sup, headerTable=headerTable, showResult=showResult)    #建造FP_Tree
         tree_miner.Tree_miner(Tree=treeBuilder.tree, min_sup=min_sup, headerTable=headerTable)         #对FP_Tree进行频繁项集的挖掘
+
+def showResult(result=[[]]):
+    """功能: 将挖掘到的频繁项集进行展示"""
+    for elem in result:
+        rule = []
+        cnt = 0
+        for item in elem:
+            if (type(item) == str or type(item) ==unicode) and item not in rule:
+                rule.append(item)
+            if type(item) == int:
+                cnt = item
+        rule.append(cnt)
+        print tuple(rule)
+    return
+
 
 if __name__ == '__main__':
     issue_mining_on_timescale()
