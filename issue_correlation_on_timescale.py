@@ -22,7 +22,7 @@ def issue_cluster_distribute_by_repo(medoids):
         cluster = medoids[i]
         while len(medoids[i]) > 0:
             issue = medoids[i].pop()
-            issue['cluster'] = 'c'+i
+            issue['cluster'] = 'c'+str(i)
             try:
                 issues_by_repo[issue['repo']].append(issue)
             except KeyError,e:
