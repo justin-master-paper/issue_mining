@@ -49,6 +49,10 @@ def do_issue_cluster_distribute_by_repo():
     issues_by_repo_sorted = sort_issues_by_repo(issues_by_repo)
     #print '*'*40
     #pprint(issues_by_repo_sorted)
+    print '-*'*20
+    print 'best_choice:'
+    pprint(best_choice)
+    print '-*'*20
 
     return issues_by_repo_sorted
 
