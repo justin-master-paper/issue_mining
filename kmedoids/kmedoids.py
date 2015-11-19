@@ -9,7 +9,7 @@
 
 import random
 
-CLASSIFICATIONS_KEYS = ["type", "serverity", "priority", "status", "origin", "source", "root_cause"]
+CLASSIFICATIONS_KEYS = ["type", "serverity", "priority", "origin", "source", "root_cause"] # "status" dropped
 max_issue_distance = len(CLASSIFICATIONS_KEYS)+1
 distances_cache = {}
 
