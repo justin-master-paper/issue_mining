@@ -45,6 +45,7 @@ def sort_issues_by_repo(issues_by_repo):
 
 def do_issue_cluster_distribute_by_repo():
     best_cost, best_choice, best_medoids = cluster_issues()
+    print 'best_medoids count:',[len(medoid) for medoid in best_medoids]
     issues_by_repo = issue_cluster_distribute_by_repo(best_medoids)
     issues_by_repo_sorted = sort_issues_by_repo(issues_by_repo)
     #print '*'*40
