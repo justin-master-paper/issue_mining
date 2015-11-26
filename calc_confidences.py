@@ -54,11 +54,13 @@ def calc_rule_confidence(rule):
 def gen_find_options(rule):
     denominator_options = {}
     for opt in rule[0]:
+        print 'opt:',opt
         key,value = opt.split('-')
         denominator_options[key] = value
     denominator_options['status'] = {'$ne': 'rejected'}
     numerator_options = deepcopy(denominator_options)
     for opt in rule[1:-1]:
+        print 'opt:',opt
         key,value = opt.split('-')
         numerator_options[key] = value
     return numerator_options, denominator_options
