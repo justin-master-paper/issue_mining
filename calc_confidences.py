@@ -19,7 +19,7 @@ rules = [
     (('root_cause-software',), 'priority-normal_queue', 60),
     (('root_cause-software',), 'priority-normal_queue', 'serverity-cosmetic', 33),
     (('root_cause-people',), 'serverity-cosmetic', 'source-code', 23),
-    (('type-build_package_merge'), 'priority-normal_queue', 22),
+    (('type-build_package_merge',), 'priority-normal_queue', 22),
     (('root_cause-target',), 'source-requirement', 'priority-normal_queue', 28),
     (('source-requirement'), 'priority-normal_queue', 'serverity-cosmetic', 35),
     (('root_cause-software',), 'serverity-minor', 'priority-normal_queue', 26),
