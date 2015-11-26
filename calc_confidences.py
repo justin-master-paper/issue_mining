@@ -21,7 +21,7 @@ rules = [
     (('root_cause-people',), 'serverity-cosmetic', 'source-code', 23),
     (('type-build_package_merge',), 'priority-normal_queue', 22),
     (('root_cause-target',), 'source-requirement', 'priority-normal_queue', 28),
-    (('source-requirement'), 'priority-normal_queue', 'serverity-cosmetic', 35),
+    (('source-requirement',), 'priority-normal_queue', 'serverity-cosmetic', 35),
     (('root_cause-software',), 'serverity-minor', 'priority-normal_queue', 26),
     (('root_cause-software', 'origin-code'), 'priority-normal_queue', 'serverity-minor', 31),
     (('root_cause-software',), 'source-code', 'origin-code', 20),
